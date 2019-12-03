@@ -21,7 +21,7 @@ class AuthViewModel @Inject constructor(private val authApi : AuthApi, private v
     private fun queryUserId(userId: Int) : LiveData<AuthResource<User>>{
         return LiveDataReactiveStreams
             .fromPublisher(authApi.getUser(userId)
-                .onErrorReturn {
+                . onErrorReturn {
                     val errorUser = User(-1,"", "", "")
                     errorUser
                 }
