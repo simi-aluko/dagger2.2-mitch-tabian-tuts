@@ -9,6 +9,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.bumptech.glide.RequestManager
 import com.simileoluwaaluko.daggerpractice.R
+import com.simileoluwaaluko.daggerpractice.models.User
 import com.simileoluwaaluko.daggerpractice.ui.main.MainActivity
 import com.simileoluwaaluko.daggerpractice.viewmodels.ViewModelProviderFactory
 import dagger.android.support.DaggerAppCompatActivity
@@ -28,6 +29,9 @@ class AuthActivity : DaggerAppCompatActivity(), View.OnClickListener{
     @Inject
     lateinit var requestManager: RequestManager
 
+    @Inject
+    lateinit var userNumber1 : User
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_auth)
@@ -37,6 +41,8 @@ class AuthActivity : DaggerAppCompatActivity(), View.OnClickListener{
         login_button.setOnClickListener(this)
         setLogo()
         subscribeObservers()
+
+        Log.d("AuthActivity", "onCreate$userNumber1")
     }
 
     private fun setLogo(){

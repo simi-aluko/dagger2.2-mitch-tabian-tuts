@@ -9,6 +9,7 @@ import retrofit2.create
 @Module
 class AuthModule {
 
+    @AuthScope
     @Module
     companion object {
 

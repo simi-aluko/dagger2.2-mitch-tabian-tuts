@@ -7,6 +7,7 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.RequestManager
 import com.bumptech.glide.request.RequestOptions
 import com.simileoluwaaluko.daggerpractice.R
+import com.simileoluwaaluko.daggerpractice.models.User
 import com.simileoluwaaluko.daggerpractice.util.Constants
 import dagger.Module
 import dagger.Provides
@@ -53,6 +54,13 @@ class AppModule {
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .addConverterFactory(GsonConverterFactory.create())
                 .build()
+        }
+
+        @Singleton
+        @JvmStatic
+        @Provides
+        fun someUser() : User {
+            return User(0,"", "", "")
         }
     }
 }
